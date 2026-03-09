@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local EPS Inspector</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>Local EPS Inspector</h1>
+      </header>
+      <main>
+        <div id="drop-zone" class="drop-zone">
+          <p>EPSファイルをここにドロップ<br>またはクリックして選択</p>
+          <input type="file" id="file-input" accept=".eps,application/postscript" style="display: none;" />
+        </div>
+        
+        <div id="info-panel" class="info-panel hidden">
+          <h2>ファイル情報</h2>
+          <ul id="metadata-list"></ul>
+        </div>
+
+        <div id="preview-area" class="preview-area hidden">
+          <h2>プレビュー</h2>
+          <div id="preview-success" class="hidden">
+            <canvas id="preview-canvas"></canvas>
+          </div>
+          <div id="fallback-ui" class="hidden">
+            <span class="icon-error" style="font-size: 2rem; display: block; margin-bottom: 10px;">ℹ️</span>
+            <p>このEPSファイルにはプレビュー用の画像(TIFF/WMF)が埋め込まれていないか、抽出不可能な形式です。<br>高解像度の確認にはIllustrator等のネイティブソフトをご利用ください。</p>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
